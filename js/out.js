@@ -85,21 +85,12 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-/*
-Stwórz komponent PizzaToppings. Ma wyświetlać dwie listy ul
-w elemencie div. Na pierwszej domyślnie znajdują się:
-Sos pomidorowy, Ananas, Kukurydza, Pomidor. Na drugiej nic.
-Po kliknięciu na dowolny
- element przenosi on się z pierwszej listy na drugą.
-*/
 var Beer = function (_React$Component) {
     _inherits(Beer, _React$Component);
 
@@ -108,36 +99,22 @@ var Beer = function (_React$Component) {
 
         var _this = _possibleConstructorReturn(this, (Beer.__proto__ || Object.getPrototypeOf(Beer)).call(this, props));
 
-        _this.handleClick = function (event) {
-            _this.setState({ answer: event.target.checked });
+        _this.handleOptionChange = function (changeEvent) {
+            _this.setState({
+                selectedOption: changeEvent.target.value
+            });
+        };
+
+        _this.handleFormSubmit = function (formSubmitEvent) {
+            formSubmitEvent.preventDefault();
+
+            console.log('You have selected:', _this.state.selectedOption);
         };
 
         _this.state = {
 
-            answer1: false,
-            answer2: false,
-            answer3: true,
-            answer4: true,
-            answer5: true,
-            answer6: true,
-            answer7: true,
-            answer8: true,
-            answer9: true,
-            answer10: true,
-            answer11: true,
-            answer12: true,
-            answer13: true,
-            answer14: true,
-            answer15: true,
-            answer16: true,
-            answer17: true,
-            answer18: true,
-            answer19: true,
-            answer20: true,
-            answer21: true,
-            answer22: true,
-            answer23: true,
-            answer24: true
+            selectOption: " "
+
         };
         return _this;
     }
@@ -150,208 +127,224 @@ var Beer = function (_React$Component) {
                 'div',
                 null,
                 _react2.default.createElement(
-                    'p',
-                    null,
-                    '1.Czy lubisz owoce cytrusowe?'
-                ),
-                _react2.default.createElement(
-                    'label',
-                    null,
-                    'tak',
-                    _react2.default.createElement('input', _defineProperty({ type: 'radio', name: 'ipa-owoce', value: this.state.answer1, onChange: this.handleClick }, 'onChange', this.handleClick))
-                ),
-                _react2.default.createElement(
-                    'label',
-                    null,
-                    'nie',
-                    _react2.default.createElement('input', { type: 'radio', name: 'ipa-owoce', value: this.state.answer1, onChange: this.handleClick })
-                ),
-                _react2.default.createElement(
-                    'p',
-                    null,
-                    '2.Czy lubisz kaw\u0119 lub kakao?'
-                ),
-                _react2.default.createElement(
-                    'label',
-                    null,
-                    'tak',
-                    _react2.default.createElement('input', { type: 'radio', name: 'porter-kawa', value: this.state.answer2, onChange: this.handleClick })
-                ),
-                _react2.default.createElement(
-                    'label',
-                    null,
-                    'nie',
-                    _react2.default.createElement('input', { type: 'radio', name: 'porter-kawa', value: this.state.answer2, onChange: this.handleClick })
-                ),
-                _react2.default.createElement(
-                    'p',
-                    null,
-                    '3.Czy lubisz banany lub go\u017Adziki?'
-                ),
-                _react2.default.createElement(
-                    'label',
-                    null,
-                    'tak',
-                    _react2.default.createElement('input', { type: 'radio', name: 'pszeniczne-banany', value: this.state.answer5, onChange: this.handleClick })
-                ),
-                _react2.default.createElement(
-                    'label',
-                    null,
-                    'nie',
-                    _react2.default.createElement('input', { type: 'radio', name: 'pszeniczne-banany', value: this.state.answer6, onChange: this.handleClick })
-                ),
-                _react2.default.createElement(
-                    'p',
-                    null,
-                    '4.Czy preferujesz tradycyjne smaki (nie lubisz eksperymentowa\u0107 )?'
-                ),
-                _react2.default.createElement(
-                    'label',
-                    null,
-                    'tak',
-                    _react2.default.createElement('input', { type: 'radio', value: this.state.answer7, onChange: this.handleChange, name: 'lager-tradycja' })
-                ),
-                _react2.default.createElement(
-                    'label',
-                    null,
-                    'nie',
-                    _react2.default.createElement('input', { type: 'radio', value: this.state.answer8, onChange: this.handleChange, name: 'lager-tradycja' })
-                ),
-                _react2.default.createElement(
-                    'p',
-                    null,
-                    '5.Czy lubisz owoce?'
-                ),
-                _react2.default.createElement(
-                    'label',
-                    null,
-                    'tak',
-                    _react2.default.createElement('input', { type: 'radio', value: this.state.answer9, onChange: this.handleClick, name: 'smakowe-owoce' })
-                ),
-                _react2.default.createElement(
-                    'label',
-                    null,
-                    'nie',
-                    _react2.default.createElement('input', { type: 'radio', value: this.state.answer10, onChange: this.handleClick, name: 'smakowe-owoce' })
-                ),
-                _react2.default.createElement(
-                    'p',
-                    null,
-                    '6.Czy lubisz aromat ciemnego pieczywa?'
-                ),
-                _react2.default.createElement(
-                    'label',
-                    null,
-                    'tak',
-                    _react2.default.createElement('input', { type: 'radio', value: this.state.answer11, onChange: this.handleClick, name: 'bock-pieczywo' })
-                ),
-                _react2.default.createElement(
-                    'label',
-                    null,
-                    'nie',
-                    _react2.default.createElement('input', { type: 'radio', value: this.state.answer12, onChange: this.handleClick, name: 'bock-pieczywo' })
-                ),
-                _react2.default.createElement(
-                    'p',
-                    null,
-                    '7.Czy lubisz gorzk\u0105 herbat\u0119 lub kaw\u0119?'
-                ),
-                _react2.default.createElement(
-                    'label',
-                    null,
-                    'tak',
-                    _react2.default.createElement('input', { type: 'radio', value: this.state.answer13, onChange: this.handleClick, name: 'ipa-gorzki' })
-                ),
-                _react2.default.createElement(
-                    'label',
-                    null,
-                    'nie',
-                    _react2.default.createElement('input', { type: 'radio', value: this.state.answer14, name: 'ipa-gorzki', onChange: this.handleClick })
-                ),
-                _react2.default.createElement(
-                    'p',
-                    null,
-                    '8.Czy lubisz mocniejsze trunki?'
-                ),
-                _react2.default.createElement(
-                    'label',
-                    null,
-                    'tak',
-                    _react2.default.createElement('input', { type: 'radio', value: this.state.answer16, name: 'alkohol-porter', onChange: this.handleClick })
-                ),
-                _react2.default.createElement(
-                    'label',
-                    null,
-                    'nie',
-                    _react2.default.createElement('input', { type: 'radio', value: this.state.answer17, name: 'alkohol-porter', onChange: this.handleClick })
-                ),
-                _react2.default.createElement(
-                    'p',
-                    null,
-                    '9.Czy w napojach szukasz orze\u017Awienia?'
-                ),
-                _react2.default.createElement(
-                    'label',
-                    null,
-                    'tak',
-                    _react2.default.createElement('input', { type: 'radio', value: this.state.answer18, name: 'pszeniczne-orzezwienie', onChange: this.handleClick })
-                ),
-                _react2.default.createElement(
-                    'label',
-                    null,
-                    'nie',
-                    _react2.default.createElement('input', { type: 'radio', value: this.state.answer19, name: 'pszeniczne-orzezwienie', onChange: this.handleClick })
-                ),
-                _react2.default.createElement(
-                    'p',
-                    null,
-                    '10.Czy kwesti\u0105 priorytetow\u0105 podczas zakup\xF3w spo\u017Cywczych jest ich ni\u017Csza cena?'
-                ),
-                _react2.default.createElement(
-                    'label',
-                    null,
-                    'tak',
-                    _react2.default.createElement('input', { type: 'radio', value: this.state.answer20, name: 'lager-cena', onChange: this.handleClick })
-                ),
-                _react2.default.createElement(
-                    'label',
-                    null,
-                    'nie',
-                    _react2.default.createElement('input', { type: 'radio', value: this.state.answer21, name: 'lager-cena', onChange: this.handleClick })
-                ),
-                _react2.default.createElement(
-                    'p',
-                    null,
-                    '11.Czy lubisz piwo :)?'
-                ),
-                _react2.default.createElement(
-                    'label',
-                    null,
-                    'tak',
-                    _react2.default.createElement('input', { type: 'radio', value: this.state.answer22, name: 'smakowe-piwo', onChange: this.handleClick })
-                ),
-                _react2.default.createElement(
-                    'label',
-                    null,
-                    'nie',
-                    _react2.default.createElement('input', { type: 'radio', value: this.state.answer23, name: 'smakowe-piwo', onChange: this.handleClick })
-                ),
-                _react2.default.createElement(
-                    'p',
-                    null,
-                    '12.Czy lubisz kwas chlebowy?'
-                ),
-                _react2.default.createElement(
-                    'label',
-                    null,
-                    'tak',
-                    _react2.default.createElement('input', { type: 'radio', value: this.state.answer24, name: 'kwas-bock', onChange: this.handleClick })
-                ),
-                _react2.default.createElement(
-                    'label',
-                    null,
-                    'nie',
-                    _react2.default.createElement('input', { type: 'radio', value: this.state.answer25, name: 'kwas-bock', onChange: this.handleClick })
+                    'form',
+                    { onSubmit: this.handleFormSubmit },
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        '1.Czy lubisz owoce cytrusowe?'
+                    ),
+                    _react2.default.createElement(
+                        'label',
+                        null,
+                        'tak',
+                        _react2.default.createElement('input', { type: 'radio', name: 'ipa-owoce', value: 'tak',
+
+                            onChange: this.handleOptionChange })
+                    ),
+                    _react2.default.createElement(
+                        'label',
+                        null,
+                        'nie',
+                        _react2.default.createElement('input', { type: 'radio', name: 'ipa-owoce', value: 'nie',
+
+                            onChange: this.handleOptionChange })
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        '2.Czy lubisz kaw\u0119 lub kakao?'
+                    ),
+                    _react2.default.createElement(
+                        'label',
+                        null,
+                        'tak',
+                        _react2.default.createElement('input', { type: 'radio', name: 'porter-kawa', value: 'tak', onChange: this.handleOptionChange })
+                    ),
+                    _react2.default.createElement(
+                        'label',
+                        null,
+                        'nie',
+                        _react2.default.createElement('input', { type: 'radio', name: 'porter-kawa', value: 'nie ', onChange: this.handleOptionChange })
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        '3.Czy lubisz banany lub go\u017Adziki?'
+                    ),
+                    _react2.default.createElement(
+                        'label',
+                        null,
+                        'tak',
+                        _react2.default.createElement('input', { type: 'radio', name: 'pszeniczne-banany',
+                            value: 'tak',
+                            onChange: this.handleOptionChange })
+                    ),
+                    _react2.default.createElement(
+                        'label',
+                        null,
+                        'nie',
+                        _react2.default.createElement('input', { type: 'radio', name: 'pszeniczne-banany', value: 'nie', onChange: this.handleOptionChange })
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        '4.Czy preferujesz tradycyjne smaki (nie lubisz eksperymentowa\u0107 )?'
+                    ),
+                    _react2.default.createElement(
+                        'label',
+                        null,
+                        'tak',
+                        _react2.default.createElement('input', { type: 'radio', value: 'tak', onChange: this.handleOptionChange, name: 'lager-tradycja' })
+                    ),
+                    _react2.default.createElement(
+                        'label',
+                        null,
+                        'nie',
+                        _react2.default.createElement('input', { type: 'radio', value: 'nie', onChange: this.handleOptionChange, name: 'lager-tradycja' })
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        '5.Czy lubisz owoce?'
+                    ),
+                    _react2.default.createElement(
+                        'label',
+                        null,
+                        'tak',
+                        _react2.default.createElement('input', { type: 'radio', value: 'tak', onChange: this.handleOptionChangeClick, name: 'smakowe-owoce' })
+                    ),
+                    _react2.default.createElement(
+                        'label',
+                        null,
+                        'nie',
+                        _react2.default.createElement('input', { type: 'radio', value: 'nie', onChange: this.handleOptionChange, name: 'smakowe-owoce' })
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        '6.Czy lubisz aromat ciemnego pieczywa?'
+                    ),
+                    _react2.default.createElement(
+                        'label',
+                        null,
+                        'tak',
+                        _react2.default.createElement('input', { type: 'radio', value: 'tak', onChange: this.handleOptionChange, name: 'bock-pieczywo' })
+                    ),
+                    _react2.default.createElement(
+                        'label',
+                        null,
+                        'nie',
+                        _react2.default.createElement('input', { type: 'radio', value: 'nie', onChange: this.handleOptionChange, name: 'bock-pieczywo' })
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        '7.Czy lubisz gorzk\u0105 herbat\u0119 lub kaw\u0119?'
+                    ),
+                    _react2.default.createElement(
+                        'label',
+                        null,
+                        'tak',
+                        _react2.default.createElement('input', { type: 'radio', value: 'tak', onChange: this.handleOptionChange, name: 'ipa-gorzki' })
+                    ),
+                    _react2.default.createElement(
+                        'label',
+                        null,
+                        'nie',
+                        _react2.default.createElement('input', { type: 'radio', value: 'nie', name: 'ipa-gorzki', onChange: this.handleOptionChange })
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        '8.Czy lubisz mocniejsze trunki?'
+                    ),
+                    _react2.default.createElement(
+                        'label',
+                        null,
+                        'tak',
+                        _react2.default.createElement('input', { type: 'radio', value: 'tak', name: 'alkohol-porter', onChange: this.handleOptionChange })
+                    ),
+                    _react2.default.createElement(
+                        'label',
+                        null,
+                        'nie',
+                        _react2.default.createElement('input', { type: 'radio', value: 'nie', name: 'alkohol-porter', onChange: this.handleOptionChange })
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        '9.Czy w napojach szukasz orze\u017Awienia?'
+                    ),
+                    _react2.default.createElement(
+                        'label',
+                        null,
+                        'tak',
+                        _react2.default.createElement('input', { type: 'radio', value: 'tak', name: 'pszeniczne-orzezwienie', onChange: this.handleOptionChange })
+                    ),
+                    _react2.default.createElement(
+                        'label',
+                        null,
+                        'nie',
+                        _react2.default.createElement('input', { type: 'radio', value: 'nie', name: 'pszeniczne-orzezwienie', onChange: this.handleOptionChange })
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        '10.Czy kwesti\u0105 priorytetow\u0105 podczas zakup\xF3w spo\u017Cywczych jest ich ni\u017Csza cena?'
+                    ),
+                    _react2.default.createElement(
+                        'label',
+                        null,
+                        'tak',
+                        _react2.default.createElement('input', { type: 'radio', value: 'tak', name: 'lager-cena', onChange: this.handleOptionChange })
+                    ),
+                    _react2.default.createElement(
+                        'label',
+                        null,
+                        'nie',
+                        _react2.default.createElement('input', { type: 'radio', value: 'nie', name: 'lager-cena', onChange: this.handleOptionChange })
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        '11.Czy lubisz piwo :)?'
+                    ),
+                    _react2.default.createElement(
+                        'label',
+                        null,
+                        'tak',
+                        _react2.default.createElement('input', { type: 'radio', value: 'tak', name: 'smakowe-piwo', onChange: this.handleOptionChange })
+                    ),
+                    _react2.default.createElement(
+                        'label',
+                        null,
+                        'nie',
+                        _react2.default.createElement('input', { type: 'radio', value: 'nie', name: 'smakowe-piwo', onChange: this.handleOptionChange })
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        '12.Czy lubisz kwas chlebowy?'
+                    ),
+                    _react2.default.createElement(
+                        'label',
+                        null,
+                        'tak',
+                        _react2.default.createElement('input', { type: 'radio', value: 'tak', name: 'kwas-bock', onChange: this.handleOptionChange })
+                    ),
+                    _react2.default.createElement(
+                        'label',
+                        null,
+                        'nie',
+                        _react2.default.createElement('input', { type: 'radio', value: 'nie', name: 'kwas-bock', onChange: this.handleOptionChange })
+                    ),
+                    _react2.default.createElement('br', null),
+                    _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-default', type: 'submit' },
+                        'Save'
+                    )
                 )
             );
         }
